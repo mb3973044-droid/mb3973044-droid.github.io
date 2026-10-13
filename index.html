@@ -160,19 +160,19 @@
       padding: 35px;
       text-align: center;
     }
+    
+.avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 3px solid #22d3ee;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+}
 
-    .avatar {
-      width: 130px;
-      height: 130px;
-      margin: auto auto 20px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #183651;
-      border: 2px solid var(--accent);
-      font-size: 3rem;
-      font-weight: bold;
-      color: var(--accent);
     }
 
     .hero-card p {
@@ -363,7 +363,7 @@
       </div>
 
       <div class="hero-card">
-        <div class="avatar" aria-label="Bilal initials">MB</div>
+        <img   class="avatar"   src="profile.jpg"   alt="Muhammad Bilal's profile photo" >
         <h2>Muhammad Bilal</h2>
         <p>Learning. Building. Improving.</p>
         <p>HTML · CSS · JavaScript</p>
