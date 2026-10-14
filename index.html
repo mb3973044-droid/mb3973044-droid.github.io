@@ -106,6 +106,26 @@
     .project-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 20px; color: var(--accent); font-size: .9rem; font-weight: 750; }
     .project-link:hover { color: #a7f5f7; }
     .project-status { display: inline-block; margin-bottom: 15px; padding: 4px 9px; border-radius: 999px; color: #c8c0ff; background: rgba(139,124,255,.12); font-size: .72rem; font-weight: 750; }
+    .project-visual { position: relative; display: grid; place-items: center; min-height: 145px; margin: -24px -24px 22px; padding: 18px; overflow: hidden; border-bottom: 1px solid var(--line); border-radius: 18px 18px 0 0; background: radial-gradient(circle at 15% 15%, rgba(72,224,238,.2), transparent 45%), linear-gradient(135deg, #102744, #111b37 70%, #171b39); }
+    .project-visual::before { content: ""; position: absolute; width: 170px; height: 170px; right: -65px; bottom: -110px; border-radius: 50%; background: rgba(139,124,255,.22); filter: blur(2px); }
+    .mini-window { position: relative; width: min(100%, 250px); padding: 10px; border: 1px solid rgba(200,225,255,.22); border-radius: 10px; background: rgba(4,14,27,.82); box-shadow: 0 12px 28px rgba(0,0,0,.22); transform: rotate(-2deg); transition: transform .3s ease; }
+    .glass-card:hover .mini-window { transform: rotate(0) translateY(-3px); }
+    .mini-dots { display: flex; gap: 4px; margin-bottom: 9px; }
+    .mini-dots i { width: 5px; height: 5px; border-radius: 50%; background: #48e0ee; opacity: .8; }
+    .mini-line { height: 6px; margin-top: 7px; border-radius: 99px; background: rgba(158,176,200,.25); }
+    .mini-line.bright { width: 62%; height: 8px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+    .mini-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; }
+    .mini-tile { height: 26px; border: 1px solid rgba(72,224,238,.17); border-radius: 5px; background: rgba(72,224,238,.08); }
+    .todo-preview { display: flex; flex-direction: column; gap: 7px; width: min(100%, 250px); padding: 13px; border: 1px solid rgba(200,225,255,.2); border-radius: 10px; background: rgba(4,14,27,.82); transform: rotate(2deg); }
+    .todo-item { display: flex; align-items: center; gap: 8px; color: #c9d8e9; font-size: .68rem; }
+    .todo-check { width: 10px; height: 10px; border: 1px solid var(--accent); border-radius: 3px; }
+    .weather-preview { display: flex; align-items: center; justify-content: space-between; width: min(100%, 250px); padding: 16px; border: 1px solid rgba(200,225,255,.2); border-radius: 12px; background: linear-gradient(120deg, rgba(4,14,27,.92), rgba(26,36,72,.92)); }
+    .weather-sun { font-size: 2.3rem; filter: drop-shadow(0 0 14px rgba(72,224,238,.4)); }
+    .weather-temp { color: #f0f7ff; font-size: 1.8rem; font-weight: 800; letter-spacing: -.06em; }
+    .js-reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .js-reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .js-reveal { opacity: 1; transform: none; transition: none; } }
+
     .contact-bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 850px; margin: auto; padding: clamp(24px, 4vw, 36px); border: 1px solid rgba(72,224,238,.22); border-radius: var(--radius); background: linear-gradient(120deg, rgba(20,56,73,.65), rgba(29,29,66,.55)); }
     .contact-bottom h3 { margin: 0 0 5px; font-size: 1.35rem; }
     .contact-bottom p { margin: 0; color: var(--muted); }
@@ -229,9 +249,9 @@
       <div class="container">
         <div class="section-heading"><p class="section-kicker">Selected work</p><h2 class="section-title">Projects in <span class="gradient-text">progress.</span></h2><p class="section-subtitle">A growing collection of projects that show my learning journey.</p></div>
         <div class="project-grid">
-          <article class="glass-card"><span class="project-status">Live portfolio</span><h3>Personal Portfolio</h3><p>A responsive personal website built with HTML and CSS to introduce myself and showcase my skills.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GitHub Pages</span></div><a class="project-link" href="https://github.com/mb3973044-droid/mb3973044-droid.github.io" target="_blank" rel="noopener noreferrer">View source code <span aria-hidden="true">↗</span></a></article>
-          <article class="glass-card"><span class="project-status">Planned project</span><h3>To-Do List App</h3><p>A task manager concept for practicing how to add, complete, and remove tasks with JavaScript.</p><div class="tags"><span class="tag">JavaScript</span><span class="tag">CSS</span></div><p class="project-link">Coming soon</p></article>
-          <article class="glass-card"><span class="project-status">Planned project</span><h3>Weather App</h3><p>A future project to practice working with APIs and presenting live weather information.</p><div class="tags"><span class="tag">JavaScript</span><span class="tag">API</span></div><p class="project-link">Coming soon</p></article>
+          <article class="glass-card"><div class="project-visual" aria-hidden="true"><div class="mini-window"><div class="mini-dots"><i></i><i></i><i></i></div><div class="mini-line bright"></div><div class="mini-line" style="width:88%"></div><div class="mini-line" style="width:70%"></div><div class="mini-row"><div class="mini-tile"></div><div class="mini-tile"></div><div class="mini-tile"></div></div></div></div><span class="project-status">Live portfolio</span><h3>Personal Portfolio</h3><p>A responsive personal website built with HTML and CSS to introduce myself and showcase my skills.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GitHub Pages</span></div><a class="project-link" href="https://github.com/mb3973044-droid/mb3973044-droid.github.io" target="_blank" rel="noopener noreferrer">View source code <span aria-hidden="true">↗</span></a></article>
+          <article class="glass-card"><div class="project-visual" aria-hidden="true"><div class="todo-preview"><div class="mini-line bright" style="width:48%"></div><div class="todo-item"><span class="todo-check"></span> Plan the week</div><div class="todo-item"><span class="todo-check"></span> Practice JavaScript</div><div class="todo-item"><span class="todo-check"></span> Finish a project</div></div></div><span class="project-status">Planned project</span><h3>To-Do List App</h3><p>A task manager concept for practicing how to add, complete, and remove tasks with JavaScript.</p><div class="tags"><span class="tag">JavaScript</span><span class="tag">CSS</span></div><p class="project-link">Coming soon</p></article>
+          <article class="glass-card"><div class="project-visual" aria-hidden="true"><div class="weather-preview"><div><div class="weather-temp">24°</div><div class="mini-line bright" style="width:62px"></div><div class="mini-line" style="width:84px"></div></div><div class="weather-sun">☀</div></div></div><span class="project-status">Planned project</span><h3>Weather App</h3><p>A future project to practice working with APIs and presenting live weather information.</p><div class="tags"><span class="tag">JavaScript</span><span class="tag">API</span></div><p class="project-link">Coming soon</p></article>
         </div>
       </div>
     </section>
@@ -244,5 +264,22 @@
   </main>
 
   <footer><div class="container footer-inner"><p>© 2026 Muhammad Bilal. Built with HTML and CSS.</p><a class="back-top" href="#home">Back to top ↑</a></div></footer>
+  <script>
+    // Add subtle scroll-reveal animations while keeping content visible if JS is unavailable.
+    (function () {
+      const items = document.querySelectorAll('.glass-card, .about-card, .contact-bottom');
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      items.forEach((item) => item.classList.add('js-reveal'));
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      items.forEach((item) => observer.observe(item));
+    })();
+  </script>
 </body>
 </html>
