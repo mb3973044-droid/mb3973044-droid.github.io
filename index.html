@@ -98,7 +98,29 @@
     .skill-grid, .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
     .glass-card { min-width: 0; padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(145deg, rgba(17,36,59,.82), rgba(9,23,40,.88)); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
     .glass-card:hover { transform: translateY(-5px); border-color: rgba(72,224,238,.4); box-shadow: 0 18px 40px rgba(0,0,0,.18); }
-    .skill-icon { display: grid; place-items: center; width: 46px; height: 46px; margin-bottom: 17px; border: 1px solid rgba(72,224,238,.18); border-radius: 14px; background: rgba(72,224,238,.08); font-size: 1.35rem; }
+    /* Premium skills section */
+    .skills-intro { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(250px, .85fr); gap: 18px; margin-bottom: 22px; }
+    .skills-summary, .learning-card { position: relative; overflow: hidden; padding: 25px; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(135deg, rgba(17,39,64,.88), rgba(9,22,40,.9)); }
+    .skills-summary::after { content: ""; position: absolute; width: 150px; height: 150px; right: -70px; top: -85px; border-radius: 50%; background: rgba(72,224,238,.13); filter: blur(4px); pointer-events: none; }
+    .skills-summary-label, .learning-label { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-size: .72rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    .skills-summary h3 { position: relative; margin: 11px 0 8px; font-size: clamp(1.2rem, 2.5vw, 1.65rem); letter-spacing: -.035em; }
+    .skills-summary p, .learning-card p { position: relative; margin: 0; color: var(--muted); font-size: .92rem; }
+    .skills-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .skills-pills span { padding: 6px 10px; border: 1px solid rgba(72,224,238,.2); border-radius: 999px; color: #c9f4f6; background: rgba(72,224,238,.06); font-size: .76rem; font-weight: 700; }
+    .learning-card { display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, rgba(36,32,73,.72), rgba(11,25,44,.92)); }
+    .learning-card .learning-mark { display: grid; place-items: center; width: 38px; height: 38px; margin-bottom: 12px; border: 1px solid rgba(156,146,255,.3); border-radius: 12px; color: #c5bcff; background: rgba(139,124,255,.12); font-size: 1.1rem; }
+    .learning-card h3 { margin: 0 0 7px; font-size: 1rem; }
+    .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .skill-card { position: relative; display: grid; grid-template-columns: 54px minmax(0, 1fr); align-items: start; gap: 15px; padding: 21px; overflow: hidden; }
+    .skill-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 2px; background: linear-gradient(180deg, var(--accent), var(--accent-2)); opacity: .7; }
+    .skill-icon { display: grid; place-items: center; width: 52px; height: 52px; margin: 0; border: 1px solid rgba(72,224,238,.2); border-radius: 16px; color: var(--accent); background: linear-gradient(145deg, rgba(72,224,238,.12), rgba(139,124,255,.1)); font-size: .95rem; font-weight: 850; letter-spacing: -.04em; box-shadow: inset 0 1px 0 rgba(255,255,255,.04); }
+    .skill-card-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 7px; }
+    .skill-card h3 { margin: 0; font-size: 1.03rem; letter-spacing: -.02em; }
+    .skill-stage { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border: 1px solid rgba(139,124,255,.22); border-radius: 999px; color: #c9c2ff; background: rgba(139,124,255,.08); font-size: .66rem; font-weight: 750; white-space: nowrap; }
+    .skill-stage::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+    .skill-card p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.65; }
+    .skill-footnote { display: flex; align-items: center; gap: 10px; margin: 20px 0 0; color: #8fa4bf; font-size: .82rem; }
+    .skill-footnote::before { content: "↗"; display: grid; place-items: center; flex: 0 0 25px; width: 25px; height: 25px; border-radius: 8px; color: var(--accent); background: rgba(72,224,238,.08); }
     .glass-card h3 { margin: 0 0 8px; font-size: 1.08rem; }
     .glass-card p { margin: 0; color: var(--muted); font-size: .92rem; }
     .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 17px; }
@@ -141,6 +163,7 @@
       .hero-copy { max-width: 720px; }
       .profile-panel { width: min(100%, 560px); margin-inline: auto; }
       .skill-grid, .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .skills-intro { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .container { width: min(100% - 28px, 1120px); }
@@ -155,6 +178,10 @@
       .profile-name { font-size: 1.15rem; }
       .skill-grid, .project-grid { grid-template-columns: 1fr; }
       .glass-card { padding: 21px; }
+      .skill-card { grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 18px; }
+      .skill-icon { width: 44px; height: 44px; border-radius: 13px; font-size: .82rem; }
+      .skill-card-top { align-items: flex-start; flex-direction: column; gap: 6px; }
+      .skills-summary, .learning-card { padding: 21px; }
       .contact-bottom, .footer-inner { align-items: flex-start; flex-direction: column; }
       .actions .btn { flex: 1 1 auto; }
     }
@@ -233,15 +260,32 @@
 
     <section class="content-section" id="skills">
       <div class="container">
-        <div class="section-heading"><p class="section-kicker">What I'm building</p><h2 class="section-title">Skills & <span class="gradient-text">toolkit.</span></h2><p class="section-subtitle">Technologies and habits I'm currently learning and practicing.</p></div>
-        <div class="skill-grid">
-          <article class="glass-card"><div class="skill-icon" aria-hidden="true">🌐</div><h3>HTML5</h3><p>Creating structured pages with semantic, accessible HTML.</p></article>
-          <article class="glass-card"><div class="skill-icon" aria-hidden="true">🎨</div><h3>CSS3</h3><p>Building layouts, visual systems, and responsive interfaces.</p></article>
-          <article class="glass-card"><div class="skill-icon" aria-hidden="true">⚡</div><h3>JavaScript</h3><p>Developing programming fundamentals and interactivity.</p></article>
-          <article class="glass-card"><div class="skill-icon" aria-hidden="true">🐙</div><h3>GitHub</h3><p>Practicing version control and publishing projects online.</p></article>
-          <article class="glass-card"><div class="skill-icon" aria-hidden="true">📱</div><h3>Responsive design</h3><p>Making pages adapt to mobile, tablet, and desktop screens.</p></article>
-          <article class="glass-card"><div class="skill-icon" aria-hidden="true">🧩</div><h3>Problem solving</h3><p>Breaking tasks into smaller steps and learning by doing.</p></article>
+        <div class="section-heading"><p class="section-kicker">My current toolkit</p><h2 class="section-title">Skills built with <span class="gradient-text">practice.</span></h2><p class="section-subtitle">A clear look at the tools I'm learning and how I'm applying them in real projects.</p></div>
+
+        <div class="skills-intro js-reveal">
+          <div class="skills-summary">
+            <span class="skills-summary-label">01 / Frontend foundations</span>
+            <h3>Turning the basics into <span class="gradient-text">real work.</span></h3>
+            <p>I'm strengthening my core web development skills by building, testing, and improving projects one step at a time.</p>
+            <div class="skills-pills"><span>Structure</span><span>Visual design</span><span>Interactivity</span><span>Responsive layouts</span></div>
+          </div>
+          <div class="learning-card">
+            <span class="learning-mark" aria-hidden="true">✳</span>
+            <span class="learning-label">Current focus</span>
+            <h3>Learn · Build · Improve</h3>
+            <p>My focus is on understanding the fundamentals and using them consistently, rather than claiming skills I haven't mastered yet.</p>
+          </div>
         </div>
+
+        <div class="skill-grid">
+          <article class="glass-card skill-card"><div class="skill-icon" aria-hidden="true">H5</div><div><div class="skill-card-top"><h3>HTML5</h3><span class="skill-stage">Core foundation</span></div><p>Writing well-structured pages with semantic elements and accessible content.</p></div></article>
+          <article class="glass-card skill-card"><div class="skill-icon" aria-hidden="true">C3</div><div><div class="skill-card-top"><h3>CSS3</h3><span class="skill-stage">Actively practicing</span></div><p>Creating layouts, styling components, and adapting designs to different screens.</p></div></article>
+          <article class="glass-card skill-card"><div class="skill-icon" aria-hidden="true">JS</div><div><div class="skill-card-top"><h3>JavaScript</h3><span class="skill-stage">Building fundamentals</span></div><p>Learning programming logic and adding useful interactions to web pages.</p></div></article>
+          <article class="glass-card skill-card"><div class="skill-icon" aria-hidden="true">GH</div><div><div class="skill-card-top"><h3>GitHub</h3><span class="skill-stage">Using in projects</span></div><p>Managing code, saving changes, and publishing my portfolio with GitHub Pages.</p></div></article>
+          <article class="glass-card skill-card"><div class="skill-icon" aria-hidden="true">RWD</div><div><div class="skill-card-top"><h3>Responsive Design</h3><span class="skill-stage">Hands-on practice</span></div><p>Making pages feel comfortable to use on phones, tablets, and desktop screens.</p></div></article>
+          <article class="glass-card skill-card"><div class="skill-icon" aria-hidden="true">PS</div><div><div class="skill-card-top"><h3>Problem Solving</h3><span class="skill-stage">Growing daily</span></div><p>Breaking challenges into smaller steps, testing fixes, and learning from each build.</p></div></article>
+        </div>
+        <p class="skill-footnote">These labels reflect my current learning journey and will evolve as I complete more projects.</p>
       </div>
     </section>
 
